@@ -23,7 +23,7 @@ http.createServer((req, res) => {
                 rp.get('http://ja.wikipedia.org/wiki/Special:Randompage', options)
                     .then(($) => {
                         // return $('title').text();
-                        return [$('#firstHeading').text(), $('#mw-content-text p').text()];
+                        return [$('#firstHeading').text(), $('#mw-content-text p').eq(0).text()];
                     }).then(params => {
                         let rendarHtml =  data.replace("<%=title %>",params[0]).replace("<%=lead %>",params[1]);
                         //res.end(title);
